@@ -14,7 +14,11 @@ export class CoffeeServiceService {
 
   constructor(private http: HttpClient) {}
 
-  getList() {
+  getCoffees() {
     return this.http.get<Coffee[]>(this.apiUrl);
+  }
+
+  addCoffee(coffee: Coffee) {
+    return this.http.post<Coffee>(this.apiUrl, coffee, this.httpOptions);
   }
 }

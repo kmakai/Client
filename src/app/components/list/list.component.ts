@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Coffee } from 'src/Models/Coffee';
 import { CoffeeServiceService } from 'src/app/coffee-service.service';
@@ -9,9 +9,5 @@ import { CoffeeServiceService } from 'src/app/coffee-service.service';
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent {
-  list$: Observable<Coffee[]>;
-
-  constructor(private coffeeService: CoffeeServiceService) {
-    this.list$ = coffeeService.getList();
-  }
+  @Input() coffees: Coffee[] = [];
 }
