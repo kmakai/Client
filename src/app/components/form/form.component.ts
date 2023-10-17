@@ -19,10 +19,10 @@ export class FormComponent {
   coffeeForm = new FormGroup({
     id: new FormControl('0'),
     date: new FormControl(new Date().toISOString().substring(0, 10)),
-    cups: new FormControl(''),
+    cups: new FormControl('1'),
   });
 
-  @Output() coffeeAdded = new EventEmitter();
+  @Output() coffeeAdded = new EventEmitter<Coffee>();
 
   constructor(private CoffeeService: CoffeeServiceService) {}
 
@@ -37,7 +37,7 @@ export class FormComponent {
 
     this.CoffeeService.addCoffee(coffee).subscribe((data) => {
       console.log(data);
-      this.coffeeAdded.emit();
+      this.coffeeAdded.emit(coffee);
     });
   }
 }

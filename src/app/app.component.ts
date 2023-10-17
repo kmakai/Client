@@ -17,14 +17,12 @@ export class AppComponent {
 
   getList() {
     this.coffeeService.getCoffees().subscribe((data) => {
-      console.log(data);
       this.coffeeList = data;
     });
   }
-  onCoffeeAdded(): void {
+  onCoffeeAdded(c: Coffee): void {
     this.coffeeService.getCoffees().subscribe((coffees) => {
       this.coffeeList = coffees;
     });
   }
-
 }

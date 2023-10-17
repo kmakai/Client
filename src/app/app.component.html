@@ -1,5 +1,4 @@
 <div class="w-full h-full flex flex-col items-center">
-  <app-form (coffeeAdded)="onCoffeeAdded()"></app-form>
-
+  <app-form (coffeeAdded)="onCoffeeAdded($event)"></app-form>
   <app-list [coffees]="coffeeList"></app-list>
 </div>
