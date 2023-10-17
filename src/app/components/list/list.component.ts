@@ -10,4 +10,14 @@ import { CoffeeServiceService } from 'src/app/coffee-service.service';
 })
 export class ListComponent {
   @Input() coffees: Coffee[] = [];
+  constructor(private CoffeeService: CoffeeServiceService) {}
+
+  deleteCoffee(id: number) {
+    this.CoffeeService.deleteCoffee(id).subscribe((data) => {
+      console.log(data);
+      this.CoffeeService.getCoffees().subscribe((data) => {
+        this.coffees = data;
+      });
+    });
+  }
 }

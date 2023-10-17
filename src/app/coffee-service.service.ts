@@ -21,4 +21,8 @@ export class CoffeeServiceService {
   addCoffee(coffee: Coffee) {
     return this.http.post<Coffee>(this.apiUrl, coffee, this.httpOptions);
   }
+
+  deleteCoffee(id: number) {
+    return this.http.delete<Coffee>(this.apiUrl + '/' + id, this.httpOptions);
+  }
 }

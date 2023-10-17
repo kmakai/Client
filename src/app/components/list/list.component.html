@@ -9,7 +9,7 @@
       >{{ item.cups }} <i class="fa-solid fa-mug-hot"></i
     ></span>
 
-    <button>
+    <button (click)="deleteCoffee(item.id!)" class="hover:text-slate-300">
       <i class="fa-solid fa-trash"></i>
     </button>
   </li>
